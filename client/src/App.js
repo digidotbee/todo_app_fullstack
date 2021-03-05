@@ -8,6 +8,7 @@ import {
 import { LoginSignup } from './features/auth/LoginSignup';
 import { Dashboard } from './features/dashboard/Dashboard';
 import AuthRoute from './features/auth/AuthRoute';
+import { Sandbox } from './features/sandbox/Sandbox';
 import Farewell from './Farewell'
 import 'antd/dist/antd.css';
 import './App.css';
@@ -25,6 +26,9 @@ function App() {
         <AuthRoute path="/dashboard">
           <Dashboard />
         </AuthRoute>
+        <Route path="/sandbox">
+          <Sandbox />
+        </Route>
       </Switch>
     </Router>
   );
