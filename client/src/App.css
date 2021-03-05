@@ -11,3 +11,10 @@
 .form-group {
   margin-bottom: 10px;
 }
+
+.wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
