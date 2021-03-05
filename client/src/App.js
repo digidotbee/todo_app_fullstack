@@ -12,6 +12,7 @@ import { Sandbox } from './features/sandbox/Sandbox';
 import Farewell from './Farewell'
 import 'antd/dist/antd.css';
 import './App.css';
+import Buttons from './features/buttons/Buttons'
 
 function App() {
   return (
