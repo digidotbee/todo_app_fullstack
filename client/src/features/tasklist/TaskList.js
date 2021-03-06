@@ -1,8 +1,8 @@
-
+import React from 'react'
 
 export default function TaskList() {
     return (
-        <div>
+        <div className="taskText">
             all my amazing tasks will go here.
         </div>
     )

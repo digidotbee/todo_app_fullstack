@@ -19,10 +19,40 @@
   justify-content: space-between;
 }
 
+/* Styles for the Button.js Component and TaskList Component */
+
+/* This styles all the ant design buttons */
 .btn {
+  margin: 5px;
   min-width: 75px;
   display: flex;
   padding-bottom: 5px;
   padding-top: 5px;
 }
+
+.btnText {
+  font-size: 10px;
+  margin-left: 5px;
+  margin-bottom: 5px !important;
+}
+
+/* This styles the whole container for the taskAdjuster panel */
+.taskListContainer {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* This styles the Important and Complete buttons */
+.btnsImportandComplete {
+  display: flex;
+  justify-content: center;
+}
+/* This styles the text os tasks and the delete button together*/
+.taskAndBtn {
+display: flex;
+padding-left: 10px;
+}
+
+
 
