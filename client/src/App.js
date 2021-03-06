@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,7 +11,7 @@ import { Sandbox } from './features/sandbox/Sandbox';
 import Farewell from './Farewell'
 import 'antd/dist/antd.css';
 import './App.css';
-import Buttons from './features/buttons/Buttons'
+
 
 function App() {
   return (
