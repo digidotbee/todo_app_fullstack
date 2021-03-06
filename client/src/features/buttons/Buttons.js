@@ -1,11 +1,11 @@
-import React from "react"
+import React from "react";
 import { Button, Radio } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
-import { FaTimes } from 'react-icons/fa'
+import { FaTimes, FaAsterisk, FaCheck } from "react-icons/fa";
 
 export default function Buttons(props) {
-  function globalState(){
-     console.log("Congratulations, you clicked a button that does nothing!")
+  function globalState() {
+    console.log("Congratulations, you clicked a button that does nothing!");
   }
 
   function active() {
@@ -16,20 +16,22 @@ export default function Buttons(props) {
   }
   function deleteTask() {
     globalState();
-  } 
-  
-  return (    
+  }
+
+  return (
     <div className="wrapper">
-      <Button type="btnComplete" onClick={() => completed()}>
-        Completed
+      <Button className="btn" type="btnComplete" onClick={() => completed()}>
+        <FaCheck />
+         completed
       </Button>
-      <Button type="btnActive" onClick={() => active()}>
-        Active
+      <Button className="btn" type="btnActive" onClick={() => active()}>
+        <FaAsterisk />
+         active
       </Button>
-      <Button type="btnDelete" onClick={() => deleteTask()}>
+      <Button className="btn" type="btnDelete" onClick={() => deleteTask()}>
         <FaTimes />
+         delete
       </Button>
     </div>
   );
 }
-

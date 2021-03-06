@@ -1,7 +1,9 @@
 import React, { useEffect } from "react"
 import request from "../../utils/request"
 import { Tabs } from "antd"
+import { Button } from "antd";
 import Buttons from '../buttons/Buttons'
+import TaskList from '../tasklist/TaskList'
 
 const { TabPane } = Tabs
 function callback(key) {
@@ -19,6 +21,7 @@ export function Dashboard() {
       <div>
         <Tabs defaultActiveKey="1" onChange={callback}>
           <TabPane tab="manage todos" key="1">
+          <TaskList />
           <Buttons />
           </TabPane>
           <TabPane tab="search" key="2">
@@ -27,7 +30,7 @@ export function Dashboard() {
         </Tabs>
       </div>
       logged in
-      <button onClick={() => request.logout()}>logout</button>
+      <Button type="btnLogout" onClick={() => request.logout()}>signout</Button>
     </div>
   )
 }
