@@ -1,15 +1,23 @@
-import React from 'react'
+import {React, useState} from 'react'
+
 import { Button } from "antd";
+
+function handleSubmit(){
+    e.preventDefault()
+
+}
 
 export default function Input() {
     return (
         <div>
-            <input
-                className="wrapper"
-                id="Todo"
-                type="text"
-                name="Todo"
-                placeholder="enter todo here"/>
+           <form action="" onSubmit={handleSubmit}>
+          <input
+          className='input'
+            type="text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+        </form>
             <Button name="submit_todo" type="submit" class="submit">
                 submit
             </Button>

@@ -16,4 +16,6 @@ router.get('/posts', async (req, res) => {
     res.json(rows)
 })
 
+
+
 export default router
