@@ -18,7 +18,7 @@ export function Dashboard() {
       .catch((e) => console.log(e))
   }, [])
   return (
-    <div>
+    <div  className='main-container'>
       <div>
         <Tabs defaultActiveKey="1" onChange={callback}>
           <TabPane tab="manage todos" key="1">

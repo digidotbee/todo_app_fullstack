@@ -8,27 +8,28 @@ import { Button } from "antd";
 // }
 
 export default function Input() {
-  const dispatch = useDispatch();
-  const todos = useSelector(selectTodos);
-  const [setTodo] = useState("");
+//   const dispatch = useDispatch();
+//   const todos = useSelector(selectTodos);
+  const [todo, setTodo] = useState("");
   function handleClick() {
-    dispatch(addTodo());
+    console.log(todo);
   }
 
-  useEffect(() => {
-    dispatch(getTodos());
-  }, []);
+//   useEffect(() => {
+//     dispatch(getTodos());
+//   }, []);
 
   return (
     <div>
-      <form action="">
+    <div >
+      <form className='input-add' action="">
         <input
           className="wrapper"
           id="Todo"
           type="text"
           onChange={(e) => setTodo(e.target.value)}
           name="Todo"
-          placeholder="enter todo here"
+          placeholder="Derrique is the best"
         />
         <Button
           onClick={handleClick}
@@ -47,6 +48,7 @@ export default function Input() {
           </div>
         );
       })} */}
+      </div>
     </div>
   );
 }
