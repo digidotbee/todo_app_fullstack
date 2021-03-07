@@ -22,24 +22,24 @@ VALUES (?,?,?);
 `,
     [description, status, user_id]
   )
-  res.json({ message: "we know ya aint gon do it but its on the lsit" })
+  res.json({ message: "we know ya aint gon do it but its on the lsit"})
 })
 
 // UPDATE REQ
 
-// router.patch("/todos/todoid", async (req, res) => {
-//   const todoid = req.params.user_id
-//   const { description, status, user_id } = req.body
-//   await knex.raw(
-//     `
-// UPDATE todos (description, status, user_id)
-// SET description = ? , status = ?
-// WHERE user_id = ?
-// `,
-//     [description, status, todoid]
-//   )
-//   res.json({ message: "the robots have update your todo" })
-// })
+router.patch("/todos/:todoid", async (req, res) => {
+  const todoid = req.params.id
+  const { status } = req.body
+  await knex.raw(
+    `
+UPDATE status
+SET status = ?
+WHERE id = ?
+`,
+    [status, todoid]
+  )
+  res.json({ message: "the robots have update your todo" })
+})
 
 // // DELETE REQ
 
