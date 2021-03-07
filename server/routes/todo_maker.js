@@ -27,34 +27,34 @@ VALUES (?,?,?);
 
 // UPDATE REQ
 
-router.patch("/todos/todoid", async (req, res) => {
-  const todoid = req.params.user_id
-  const { description, status, user_id } = req.body
-  await knex.raw(
-    `
-UPDATE todos (description, status, user_id)
-SET description = ? , status = ?
-WHERE user_id = ?
-`,
-    [description, status, user_id]
-  )
-  res.json({ message: "the robots have update your todo" })
-})
+// router.patch("/todos/todoid", async (req, res) => {
+//   const todoid = req.params.user_id
+//   const { description, status, user_id } = req.body
+//   await knex.raw(
+//     `
+// UPDATE todos (description, status, user_id)
+// SET description = ? , status = ?
+// WHERE user_id = ?
+// `,
+//     [description, status, todoid]
+//   )
+//   res.json({ message: "the robots have update your todo" })
+// })
 
-// DELETE REQ
+// // DELETE REQ
 
-router.patch("/todos/todoid", async (req, res) => {
-  const todoid = req.params.user_id
-  const { description, status, user_id } = req.body
-  await knex.raw(
-    `
-DELETE FROM todos 
+// router.patch("/todos/todoid", async (req, res) => {
+//   const todoid = req.params.user_id
+//   const { description, status, user_id } = req.body
+//   await knex.raw(
+//     `
+// DELETE FROM todos 
 
-WHERE user_id = ?
-`,
-    [user_id]
-  )
-  res.json({ message: "be gone" })
-})
+// WHERE user_id = ?
+// `,
+//     [user_id]
+//   )
+//   res.json({ message: "be gone" })
+// })
 
 export default router
