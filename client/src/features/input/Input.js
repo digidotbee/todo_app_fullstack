@@ -1,17 +1,17 @@
-import React from "react";
+import {useState} from "react";
 import { Button } from "antd";
 
 export default function Input() {
-  const dispatch = useDispatch();
-  const todos = useSelector(selectTodos);
-  const [setTodo] = useState("");
+  // const dispatch = useDispatch();
+  // const todos = useSelector(selectTodos);
+  const [todo, setTodo] = useState("");
   function handleClick() {
-    dispatch(addTodo());
+    console.log(todo);
   }
 
-  useEffect(() => {
-    dispatch(getTodos());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getTodos());
+  // }, []);
 
   return (
     <div>

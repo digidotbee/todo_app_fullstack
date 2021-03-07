@@ -12,14 +12,27 @@
   margin-bottom: 10px;
 }
 
-.wrapper{
+.wrapper {
   padding: 10px 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* Styles for the dashboard */
+
+
 /* Styles for the Button.js Component and TaskList Component */
+
+.taskText{
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+li{
+  margin-top: 13px;
+}
 
 /* This styles all the ant design buttons */
 .btn {
@@ -50,9 +63,6 @@
 }
 /* This styles the text os tasks and the delete button together*/
 .taskAndBtn {
-display: flex;
-padding-left: 10px;
+  display: flex;
+  padding-left: 10px;
 }
-
-
-

@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Radio } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
 import { FaTimes, FaAsterisk, FaCheck } from "react-icons/fa";
-import TaskList from "../tasklist/TaskList";
+
 
 export default function Buttons(props) {
   function globalState() {
@@ -24,15 +24,14 @@ export default function Buttons(props) {
       <span className="btnsImportandComplete">
         <Button className="btn" type="btnComplete" onClick={() => completed()}>
           <FaCheck />
-          <span className="btnText">completed</span>
+          <span className="btnText"></span>
         </Button>
         <Button className="btn" type="btnImportant" onClick={() => active()}>
           <FaAsterisk />
-          <span className="btnText">important</span>
+          <span className="btnText">active</span>
         </Button>
       </span>
       <span className="taskAndBtn">
-        <TaskList />
         <Button className="btn" type="btnDelete" onClick={() => deleteTask()}>
           <FaTimes />
           <span className="btnText">delete</span>
