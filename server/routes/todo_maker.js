@@ -1,28 +1,60 @@
-import express from 'express'
+import express from "express"
 const router = express.Router()
-import knex from '../db.js'
+import knex from "../db.js"
 
-router.get('/todos', async(req, res) => {
-    // const todos = await knex.raw('SELECT * FROM todos')
-    // const rows = todos.rows
-    // res.json(rows)
-    res.json({message:"test!!!"})
+// GET REQ
+
+router.get("/todos", async (req, res) => {
+  // const todos = await knex.raw('SELECT * FROM todos')
+  // const rows = todos.rows
+  // res.json(rows)
+  res.json({ message: "test!!!" })
 })
 
+// POST REQ
 
-router.post('/todos', async (req, res) => {
-    const {description, status, user_id} = req.body   
-    await knex.raw(
-
-`
+router.post("/todos", async (req, res) => {
+  const { description, status, user_id } = req.body
+  await knex.raw(
+    `
 INSERT INTO todos (description, status, user_id)
 VALUES (?,?,?);
-`
-,
+`,
+    [description, status, user_id]
+  )
+  res.json({ message: "we know ya aint gon do it but its on the lsit" })
+})
 
-[description, status, user_id]
-    );
-    res.json({message: 'we know ya aint gon do it but its on the lsit'})
+// UPDATE REQ
+
+router.patch("/todos/todoid", async (req, res) => {
+  const todoid = req.params.user_id
+  const { description, status, user_id } = req.body
+  await knex.raw(
+    `
+UPDATE todos (description, status, user_id)
+SET description = ? , status = ?
+WHERE user_id = ?
+`,
+    [description, status, user_id]
+  )
+  res.json({ message: "the robots have update your todo" })
+})
+
+// DELETE REQ
+
+router.patch("/todos/todoid", async (req, res) => {
+  const todoid = req.params.user_id
+  const { description, status, user_id } = req.body
+  await knex.raw(
+    `
+DELETE FROM todos 
+
+WHERE user_id = ?
+`,
+    [user_id]
+  )
+  res.json({ message: "be gone" })
 })
 
 export default router
