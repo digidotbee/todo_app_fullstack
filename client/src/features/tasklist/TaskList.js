@@ -24,12 +24,15 @@ export default function TaskList() {
         globalState();
       }
 
-      const todos = useSelector(selectTodos)
+      // const todos = useSelector(selectTodos)
+      const [todos, setTodos] = useState([])
+
       useEffect(async () => {
         request
           .get("/todos")
-          .then((r) => console.log(r))
+          .then((r) =>  setTodos(r.data))
           .catch((e) => console.log(e))
+          
       }, [])
 
     return (
@@ -47,8 +50,7 @@ export default function TaskList() {
       <span className="taskAndBtn">
       <div className="taskText">
             {todos.map(todo => {
-                return 
-                <p>${todo.description}</p>
+                return <p>${todo.description}</p>
 
             })}
         </div>
