@@ -1,6 +1,37 @@
-import React from 'react'
+import {useEffect, useState} from "react";
+import { Button, Radio } from "antd";
+import { DownloadOutlined } from "@ant-design/icons";
+import { FaTimes, FaAsterisk, FaCheck } from "react-icons/fa";
+import request from "../../utils/request" 
+import {
+    getTodos,
+    selectTodos
+  } from "../dashboard/dashSlice"
+import {useSelector, useDispatch} from 'react-redux'
 
 export default function TaskList() {
+
+    function globalState() {
+        console.log("Congratulations, you clicked a button that does nothing!");
+      }
+      function active() {
+        globalState();
+      }
+      function completed() {
+        globalState();
+      }
+      function deleteTask() {
+        globalState();
+      }
+
+      const todos = useSelector(selectTodos)
+      useEffect(async () => {
+        request
+          .get("/todos")
+          .then((r) => console.log(r))
+          .catch((e) => console.log(e))
+      }, [])
+
     return (
 <div className="taskListContainer">
       <span className="btnsImportandComplete">
@@ -15,7 +46,11 @@ export default function TaskList() {
       </span>
       <span className="taskAndBtn">
       <div className="taskText">
-            all my amazing tasks will go here.
+            {todos.map(todo => {
+                return 
+                <p>${todo.description}</p>
+
+            })}
         </div>
         <Button className="btn" type="btnDelete" onClick={() => deleteTask()}>
           <FaTimes />
