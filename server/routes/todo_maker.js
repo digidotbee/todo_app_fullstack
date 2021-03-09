@@ -5,22 +5,26 @@ import knex from "../db.js"
 // GET REQ
 
 router.get("/todos", async (req, res) => {
-  // const todos = await knex.raw('SELECT * FROM todos')
-  // const rows = todos.rows
-  // res.json(rows)
-  res.json({ message: "test!!!" })
+  const todos = await knex.raw(`
+  SELECT * FROM todos
+  WHERE user_id = ?
+  `, [req.user.id])
+  const rows = todos.rows
+  res.json(rows)
+  // res.json({ message: "test!!!" })
 })
 
 // POST REQ
 
 router.post("/todos", async (req, res) => {
-  const { description, status, user_id } = req.body
+  const user_id = req.user.id
+  const { description, status} = req.body
   await knex.raw(
     `
-INSERT INTO todos (description, status, user_id)
+INSERT INTO todos (description)
 VALUES (?,?,?);
 `,
-    [description, status, user_id]
+    [description, 'active', user_id] // changed status to active
   )
   res.json({ message: "we know ya aint gon do it but its on the lsit"})
 })
